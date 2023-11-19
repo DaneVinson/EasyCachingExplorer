@@ -1,13 +1,19 @@
 ﻿@model AlphaViewModel;
 
 <div>
-    <h3 class="display-4">@Model.CarCaption</h3>
+    <h3 class="display-4">@Model.CarsCaption</h3>
 	<ul>
-    @foreach(var car in Model.Cars)
-	{
-		<li>@car.Make @car.Model</li>
-	}
+		@foreach(var car in Model.Cars)
+		{
+			<li>@car.Make @car.Model</li>
+		}
 	</ul>
 	<hr />
-	<h3 class="display-4">Car X</h3>
+	<h3 class="display-4">@Model.Cars2Caption</h3>
+	<ul>
+		@foreach (var car in Model.Cars2)
+		{
+			<li>@car.Make @car.Model</li>
+		}
+	</ul>
 </div>

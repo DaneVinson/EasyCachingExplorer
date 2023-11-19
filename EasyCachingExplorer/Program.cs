@@ -1,5 +1,6 @@
 using EasyCaching.InMemory;
 using EasyCachingExplorer.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,10 @@ builder.Services
 			config.MaxRdSecond = 0; // default 120
 		},
 		Names.MemoryCacheAlpha);
+	})
+	.AddMemoryCache(options =>
+	{
+		options.ExpirationScanFrequency = TimeSpan.FromSeconds(1);
 	});
 
 var app = builder.Build();

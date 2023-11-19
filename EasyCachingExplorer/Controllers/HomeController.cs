@@ -14,10 +14,10 @@ public class HomeController(CarsService carsService) : Controller
 		var car = _carsService.GetCar(1);
 		var model = new AlphaViewModel()
 		{
-			Car = car,
-			CarCaption = $"Car {car.Id}",
-			Cars = _carsService.GetCurrentCars(),
-			CarsCaption = "Cars seen in the last few seconds",
+			Cars = _carsService.GetCarsFromEasyCaching(),
+			CarsCaption = "EasyCaching Cars",
+			Cars2 = _carsService.GetCarsFromMemoryCache(),
+			Cars2Caption = "MemoryCache Cars",
 		};
 
 		return View(model);
